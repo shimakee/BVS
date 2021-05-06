@@ -13,7 +13,7 @@ namespace DataAccessLayer.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         protected readonly DbContext _context;
-        public Repository(ApplicationContext context)
+        public Repository(PlutoContext context)
         {
             _context = context;
         }

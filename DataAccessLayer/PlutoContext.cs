@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class ApplicationContext : DbContext
+    public class PlutoContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
         //public ApplicationContext(DbContextOptions<ApplicationContext> options)

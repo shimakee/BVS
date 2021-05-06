@@ -11,10 +11,10 @@ namespace DataAccessLayer
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationContext _context;
+        private readonly PlutoContext _context;
         public ICustomerRepository Customer { get; }
 
-        public UnitOfWork(ApplicationContext context)
+        public UnitOfWork(PlutoContext context)
         {
             _context = context;
             Customer = new CustomerRepository(context);

@@ -1,3 +1,4 @@
+using DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,11 @@ namespace Infosoft_technical
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomerForm());
 
-            var context = new ApplicationContext();
+            PlutoContext context = new PlutoContext();
+            UnitOfWork unitOfWork = new UnitOfWork(context);
+            Application.Run(new CustomerForm(unitOfWork));
+
         }
     }
 }

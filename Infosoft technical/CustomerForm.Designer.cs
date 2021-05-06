@@ -29,24 +29,24 @@ namespace Infosoft_technical
         /// </summary>
         private void InitializeComponent()
         {
-            this.firstName = new System.Windows.Forms.Label();
+            this.InputFirstName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lastName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.InputLastName = new System.Windows.Forms.TextBox();
+            this.InputBirthdate = new System.Windows.Forms.MonthCalendar();
             this.birthdate = new System.Windows.Forms.Label();
             this.submit = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // firstName
+            // InputFirstName
             // 
-            this.firstName.AutoSize = true;
-            this.firstName.Location = new System.Drawing.Point(40, 23);
-            this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(65, 15);
-            this.firstName.TabIndex = 0;
-            this.firstName.Text = "First name:";
+            this.InputFirstName.AutoSize = true;
+            this.InputFirstName.Location = new System.Drawing.Point(40, 23);
+            this.InputFirstName.Name = "InputFirstName";
+            this.InputFirstName.Size = new System.Drawing.Size(65, 15);
+            this.InputFirstName.TabIndex = 0;
+            this.InputFirstName.Text = "First name:";
             // 
             // textBox1
             // 
@@ -54,6 +54,7 @@ namespace Infosoft_technical
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(152, 23);
             this.textBox1.TabIndex = 1;
+            //this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lastName
             // 
@@ -64,18 +65,19 @@ namespace Infosoft_technical
             this.lastName.TabIndex = 2;
             this.lastName.Text = "Last name:";
             // 
-            // textBox2
+            // InputLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(111, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 23);
-            this.textBox2.TabIndex = 3;
+            this.InputLastName.Location = new System.Drawing.Point(111, 66);
+            this.InputLastName.Name = "InputLastName";
+            this.InputLastName.Size = new System.Drawing.Size(152, 23);
+            this.InputLastName.TabIndex = 3;
             // 
-            // monthCalendar1
+            // InputBirthdate
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(111, 117);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 4;
+            this.InputBirthdate.Location = new System.Drawing.Point(111, 117);
+            this.InputBirthdate.MaxSelectionCount = 1;
+            this.InputBirthdate.Name = "InputBirthdate";
+            this.InputBirthdate.TabIndex = 4;
             // 
             // birthdate
             // 
@@ -95,6 +97,7 @@ namespace Infosoft_technical
             this.submit.TabIndex = 6;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = false;
+            //this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // cancel
             // 
@@ -113,11 +116,11 @@ namespace Infosoft_technical
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.birthdate);
-            this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.InputBirthdate);
+            this.Controls.Add(this.InputLastName);
             this.Controls.Add(this.lastName);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.firstName);
+            this.Controls.Add(this.InputFirstName);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
             this.ResumeLayout(false);
@@ -127,11 +130,11 @@ namespace Infosoft_technical
 
         #endregion
 
-        private System.Windows.Forms.Label firstName;
+        private System.Windows.Forms.Label InputFirstName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lastName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.TextBox InputLastName;
+        private System.Windows.Forms.MonthCalendar InputBirthdate;
         private System.Windows.Forms.Label birthdate;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Button cancel;
