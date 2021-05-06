@@ -39,7 +39,10 @@ namespace Infosoft_technical.VideoForms
             this.cancel = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.videoList = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.stockInput = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.videoList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInput)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -97,7 +100,7 @@ namespace Infosoft_technical.VideoForms
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(58, 159);
+            this.submit.Location = new System.Drawing.Point(58, 196);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(78, 25);
             this.submit.TabIndex = 7;
@@ -107,7 +110,7 @@ namespace Infosoft_technical.VideoForms
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(148, 159);
+            this.cancel.Location = new System.Drawing.Point(148, 196);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 25);
             this.cancel.TabIndex = 8;
@@ -117,7 +120,7 @@ namespace Infosoft_technical.VideoForms
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(235, 159);
+            this.delete.Location = new System.Drawing.Point(235, 196);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 25);
             this.delete.TabIndex = 9;
@@ -140,11 +143,34 @@ namespace Infosoft_technical.VideoForms
             this.videoList.Size = new System.Drawing.Size(388, 376);
             this.videoList.TabIndex = 10;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(58, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Stock";
+            // 
+            // stockInput
+            // 
+            this.stockInput.Location = new System.Drawing.Point(148, 159);
+            this.stockInput.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.stockInput.Name = "stockInput";
+            this.stockInput.Size = new System.Drawing.Size(162, 23);
+            this.stockInput.TabIndex = 13;
+            // 
             // VideoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.stockInput);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.videoList);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.cancel);
@@ -158,6 +184,7 @@ namespace Infosoft_technical.VideoForms
             this.Name = "VideoForm";
             this.Text = "VideoForm";
             ((System.ComponentModel.ISupportInitialize)(this.videoList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +202,7 @@ namespace Infosoft_technical.VideoForms
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.DataGridView videoList;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown stockInput;
     }
 }

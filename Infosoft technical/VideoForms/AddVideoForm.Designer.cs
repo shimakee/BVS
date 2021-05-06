@@ -35,11 +35,14 @@ namespace Infosoft_technical.VideoForms
             this.label2 = new System.Windows.Forms.Label();
             this.titleInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.stockInput = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInput)).BeginInit();
             this.SuspendLayout();
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(212, 105);
+            this.cancel.Location = new System.Drawing.Point(208, 162);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(79, 25);
             this.cancel.TabIndex = 14;
@@ -49,7 +52,7 @@ namespace Infosoft_technical.VideoForms
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(35, 105);
+            this.submit.Location = new System.Drawing.Point(35, 162);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(78, 25);
             this.submit.TabIndex = 13;
@@ -90,11 +93,34 @@ namespace Infosoft_technical.VideoForms
             this.label1.TabIndex = 9;
             this.label1.Text = "Title";
             // 
+            // stockInput
+            // 
+            this.stockInput.Location = new System.Drawing.Point(125, 109);
+            this.stockInput.Maximum = new decimal(new int[] {
+            276447231,
+            23283,
+            0,
+            0});
+            this.stockInput.Name = "stockInput";
+            this.stockInput.Size = new System.Drawing.Size(162, 23);
+            this.stockInput.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Stock";
+            // 
             // AddVideoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 175);
+            this.ClientSize = new System.Drawing.Size(317, 208);
+            this.Controls.Add(this.stockInput);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.categoryInput);
@@ -103,6 +129,7 @@ namespace Infosoft_technical.VideoForms
             this.Controls.Add(this.label1);
             this.Name = "AddVideoForm";
             this.Text = "AddVideoForm";
+            ((System.ComponentModel.ISupportInitialize)(this.stockInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +143,7 @@ namespace Infosoft_technical.VideoForms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox titleInput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown stockInput;
+        private System.Windows.Forms.Label label3;
     }
 }
