@@ -45,5 +45,10 @@ namespace Models
                 OnPropertyChanged();
             }
         }
+
+        public int Age
+        {
+            get { return (int)(DateTime.Now - Birthdate).Days/365; }
+        }
     }
 }

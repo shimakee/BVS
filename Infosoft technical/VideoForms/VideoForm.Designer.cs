@@ -132,6 +132,7 @@ namespace Infosoft_technical.VideoForms
             // 
             this.videoList.AllowUserToAddRows = false;
             this.videoList.AllowUserToDeleteRows = false;
+            this.videoList.AllowUserToOrderColumns = true;
             this.videoList.AllowUserToResizeColumns = false;
             this.videoList.AllowUserToResizeRows = false;
             this.videoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

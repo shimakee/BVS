@@ -116,6 +116,7 @@ namespace Infosoft_technical
             // 
             this.ListOfCustomers.AllowUserToAddRows = false;
             this.ListOfCustomers.AllowUserToDeleteRows = false;
+            this.ListOfCustomers.AllowUserToOrderColumns = true;
             this.ListOfCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListOfCustomers.Location = new System.Drawing.Point(342, 23);
             this.ListOfCustomers.MultiSelect = false;

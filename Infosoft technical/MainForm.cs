@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using DataAccessLayer;
+using Infosoft_technical.Transaction;
 using Infosoft_technical.VideoForms;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Infosoft_technical
     {
         private CustomerForm customerForm { get; set; }
         private VideoForm videoForm { get; set; }
+        private RentForm rentForm { get; set; }
         private readonly IUnitOfWork _unitOfWork;
         public MainForm(UnitOfWork unitOfWork)
         {
@@ -40,6 +42,13 @@ namespace Infosoft_technical
             if (videoForm == null)
                 videoForm = new VideoForm(_unitOfWork);
             videoForm.ShowDialog();
+        }
+
+        private void Rent_Click(object sender, EventArgs e)
+        {
+            if (rentForm == null)
+                rentForm = new RentForm(_unitOfWork);
+            rentForm.ShowDialog();
         }
     }
 }
