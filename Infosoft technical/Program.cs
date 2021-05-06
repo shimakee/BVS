@@ -1,8 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Infosoft_technical
 {
@@ -18,6 +20,8 @@ namespace Infosoft_technical
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CustomerForm());
+
+            var context = new ApplicationContext();
         }
     }
 }
