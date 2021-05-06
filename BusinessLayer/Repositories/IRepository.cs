@@ -10,6 +10,7 @@ namespace BusinessLayer.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class, IEntity
     {
+        void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);
         void Update(TEntity entityDTO);
         void UpdateRange(IEnumerable<TEntity> entitiesDTO);

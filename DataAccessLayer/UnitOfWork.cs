@@ -9,5 +9,9 @@ namespace DataAccessLayer
 {
     public class UnitOfWork : IUnitOfWork
     {
+        ICustomerRepository Room { get; }
+        Task<int> CompleteAsync();
+        int Complete();
+        void DetachAllEntries();
     }
 }
