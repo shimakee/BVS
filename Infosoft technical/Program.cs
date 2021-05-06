@@ -22,8 +22,9 @@ namespace Infosoft_technical
             Application.SetCompatibleTextRenderingDefault(false);
 
             PlutoContext context = new PlutoContext();
+            context.Customers.ToList();
             UnitOfWork unitOfWork = new UnitOfWork(context);
-            Application.Run(new CustomerForm(unitOfWork));
+            Application.Run(new MainForm(unitOfWork));
 
         }
     }
