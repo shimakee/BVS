@@ -10,5 +10,10 @@ namespace DataAccessLayer.Repositories
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
+        public CustomerRepository(ApplicationContext context)
+            : base(context)
+        {
+
+        }
     }
 }

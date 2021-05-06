@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
-        ICustomerRepository Room { get; }
+        ICustomerRepository Customer { get; }
         Task<int> CompleteAsync();
         int Complete();
         void DetachAllEntries();

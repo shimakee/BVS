@@ -1,4 +1,5 @@
-﻿using Models.Interfaces;
+﻿using Models;
+using Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Repositories
 {
-    public interface ICustomerRepository : IRepository<ICustomer>
+    public interface ICustomerRepository : IRepository<Customer>
     {
     }
 }
