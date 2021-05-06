@@ -46,10 +46,13 @@ namespace Infosoft_technical.Transaction
             this.remove = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.daysRental = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customersList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videosList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.age)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daysRental)).BeginInit();
             this.SuspendLayout();
             // 
             // customersList
@@ -177,7 +180,7 @@ namespace Infosoft_technical.Transaction
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(313, 198);
+            this.label4.Location = new System.Drawing.Point(547, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 11;
@@ -185,7 +188,7 @@ namespace Infosoft_technical.Transaction
             // 
             // totalAmount
             // 
-            this.totalAmount.Location = new System.Drawing.Point(407, 195);
+            this.totalAmount.Location = new System.Drawing.Point(618, 195);
             this.totalAmount.Name = "totalAmount";
             this.totalAmount.Size = new System.Drawing.Size(141, 23);
             this.totalAmount.TabIndex = 12;
@@ -228,11 +231,44 @@ namespace Infosoft_technical.Transaction
             this.label6.TabIndex = 16;
             this.label6.Text = "Customers";
             // 
+            // daysRental
+            // 
+            this.daysRental.Location = new System.Drawing.Point(618, 154);
+            this.daysRental.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.daysRental.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.daysRental.Name = "daysRental";
+            this.daysRental.Size = new System.Drawing.Size(141, 23);
+            this.daysRental.TabIndex = 17;
+            this.daysRental.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(547, 156);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 15);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Days";
+            // 
             // RentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.daysRental);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.remove);
@@ -256,6 +292,7 @@ namespace Infosoft_technical.Transaction
             ((System.ComponentModel.ISupportInitialize)(this.videosList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.age)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daysRental)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +318,7 @@ namespace Infosoft_technical.Transaction
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView ist;
+        private System.Windows.Forms.NumericUpDown daysRental;
+        private System.Windows.Forms.Label label7;
     }
 }

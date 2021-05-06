@@ -17,6 +17,8 @@ namespace Infosoft_technical.Transaction
         private readonly IUnitOfWork _unitOfWork;
         public Customer Customer { get; set; }
 
+        public int DaysRental { get; set; } = 1;
+
         public decimal TotalAmount
         {
             get { return Rentals.Sum(video => video.Price); }
@@ -47,6 +49,7 @@ namespace Infosoft_technical.Transaction
 
             totalAmount.DataBindings.Add("Text", this, nameof(this.totalAmount));
 
+            daysRental.DataBindings.Add("Value", this, nameof(this.DaysRental));
 
             videosList.DataSource = _unitOfWork.Video.GetAll().ToList();
             rentalList.DataSource = Rentals = new BindingList<Video>();
@@ -60,7 +63,20 @@ namespace Infosoft_technical.Transaction
 
         private void rent_Click(object sender, EventArgs e)
         {
+            foreach (var video in Rentals)
+            {
+                var rental = new VideoRental();
+                rental.Customer = Customer;
+                rental.Video = video;
+                rental.StartDate = DateTime.Now;
+                rental.DueDate = DateTime.Now.AddDays(DaysRental);
+                _unitOfWork.Rental.Add(rental);
 
+                //change video stock here
+            }
+
+            _unitOfWork.Complete();
+            this.Close();
         }
 
         private void cancel_Click(object sender, EventArgs e)
