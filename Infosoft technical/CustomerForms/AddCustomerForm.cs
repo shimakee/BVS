@@ -32,6 +32,14 @@ namespace Infosoft_technical
             _unitOfWork.Customer.Add(Customer);
             _unitOfWork.Complete();
             Customer = new Customer();
+
+            InputFirstName.DataBindings.Clear();
+            InputLastName.DataBindings.Clear();
+            InputBirthdate.DataBindings.Clear();
+
+            InputFirstName.DataBindings.Add("Text", Customer, nameof(Customer.FirstName));
+            InputLastName.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
+            InputBirthdate.DataBindings.Add("Value", Customer, nameof(Customer.Birthdate));
             this.Close();
         }
 

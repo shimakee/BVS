@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using DataAccessLayer;
+using Infosoft_technical.VideoForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace Infosoft_technical
     public partial class MainForm : Form
     {
         private CustomerForm customerForm { get; set; }
+        private VideoForm videoForm { get; set; }
         private readonly IUnitOfWork _unitOfWork;
         public MainForm(UnitOfWork unitOfWork)
         {
@@ -31,6 +33,13 @@ namespace Infosoft_technical
             if (customerForm == null)
                 customerForm = new CustomerForm(_unitOfWork);
             customerForm.ShowDialog();
+        }
+
+        private void AddVideoButton_Click(object sender, EventArgs e)
+        {
+            if (videoForm == null)
+                videoForm = new VideoForm(_unitOfWork);
+            videoForm.ShowDialog();
         }
     }
 }

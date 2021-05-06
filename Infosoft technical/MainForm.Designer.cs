@@ -30,6 +30,7 @@ namespace Infosoft_technical
         private void InitializeComponent()
         {
             this.AddCustomerButton = new System.Windows.Forms.Button();
+            this.AddVideoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddCustomerButton
@@ -42,11 +43,22 @@ namespace Infosoft_technical
             this.AddCustomerButton.UseVisualStyleBackColor = true;
             this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
             // 
+            // AddVideoButton
+            // 
+            this.AddVideoButton.Location = new System.Drawing.Point(443, 25);
+            this.AddVideoButton.Name = "AddVideoButton";
+            this.AddVideoButton.Size = new System.Drawing.Size(130, 22);
+            this.AddVideoButton.TabIndex = 1;
+            this.AddVideoButton.Text = "Add Video";
+            this.AddVideoButton.UseVisualStyleBackColor = true;
+            this.AddVideoButton.Click += new System.EventHandler(this.AddVideoButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AddVideoButton);
             this.Controls.Add(this.AddCustomerButton);
             this.Name = "MainForm";
             this.Text = "MainForm";
@@ -58,5 +70,6 @@ namespace Infosoft_technical
         #endregion
 
         private System.Windows.Forms.Button AddCustomerButton;
+        private System.Windows.Forms.Button AddVideoButton;
     }
 }
