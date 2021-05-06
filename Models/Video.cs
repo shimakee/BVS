@@ -30,6 +30,8 @@ namespace Models
             }
         }
 
+        public decimal Price { get { return (Category == VideoCategory.DVD) ? 50 : 25; } }
+
     }
 
     public enum VideoCategory
