@@ -13,11 +13,13 @@ namespace DataAccessLayer
     {
         private readonly PlutoContext _context;
         public ICustomerRepository Customer { get; }
+        public IVideoRepository Video { get; }
 
         public UnitOfWork(PlutoContext context)
         {
             _context = context;
             Customer = new CustomerRepository(context);
+            Video = new VideoRepository(context);
         }
 
         public int Complete()
