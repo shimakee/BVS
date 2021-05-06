@@ -11,6 +11,7 @@ namespace DataAccessLayer
     public class PlutoContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Video> Videos { get; set; }
         //public ApplicationContext(DbContextOptions<ApplicationContext> options)
         //    :base(options)
         //{
