@@ -9,6 +9,7 @@ namespace BusinessLayer
 {
     public interface IUnitOfWork : IDisposable
     {
+        IVideoRentalRepository Rental { get; }
         IVideoRepository Video { get; }
         ICustomerRepository Customer { get; }
         Task<int> CompleteAsync();

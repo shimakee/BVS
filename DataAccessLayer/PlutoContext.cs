@@ -12,6 +12,7 @@ namespace DataAccessLayer
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Video> Videos { get; set; }
+        public DbSet<VideoRental> Rentals { get; set; }
         //public ApplicationContext(DbContextOptions<ApplicationContext> options)
         //    :base(options)
         //{
