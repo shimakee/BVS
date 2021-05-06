@@ -30,6 +30,20 @@ namespace Models
             }
         }
 
+        private int _stock;
+        public int Stock
+        {
+            get { return _stock; }
+            set
+            {
+                if (value < 0)
+                    _stock = 0;
+                else
+                    _stock = value;
+                OnPropertyChanged();
+            }
+        }
+
         public decimal Price { get { return (Category == VideoCategory.DVD) ? 50 : 25; } }
 
     }
