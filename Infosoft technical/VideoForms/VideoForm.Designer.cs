@@ -127,10 +127,16 @@ namespace Infosoft_technical.VideoForms
             // 
             // videoList
             // 
+            this.videoList.AllowUserToAddRows = false;
+            this.videoList.AllowUserToDeleteRows = false;
+            this.videoList.AllowUserToResizeColumns = false;
+            this.videoList.AllowUserToResizeRows = false;
             this.videoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.videoList.Location = new System.Drawing.Point(371, 31);
+            this.videoList.MultiSelect = false;
             this.videoList.Name = "videoList";
             this.videoList.RowTemplate.Height = 25;
+            this.videoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.videoList.Size = new System.Drawing.Size(388, 376);
             this.videoList.TabIndex = 10;
             // 

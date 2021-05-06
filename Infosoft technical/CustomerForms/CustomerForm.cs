@@ -42,11 +42,6 @@ namespace Infosoft_technical
                 if(ListOfCustomers.SelectedRows.Count > 0)
                 {
                     var customer = ListOfCustomers.SelectedRows[0].DataBoundItem as Customer;
-
-                    //Customer.ID = customer.ID;
-                    //Customer.FirstName = customer.FirstName;
-                    //Customer.LastName = customer.LastName;
-                    //Customer.Birthdate = customer.Birthdate;
                     if(customer != null)
                     {
                         Customer = customer;

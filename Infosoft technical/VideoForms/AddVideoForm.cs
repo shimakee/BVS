@@ -21,11 +21,11 @@ namespace Infosoft_technical.VideoForms
             InitializeComponent();
             _unitOfWork = unitOfWork;
             video = new Video();
-            video.Category = VideoCategory.DVD;
-
             titleInput.DataBindings.Add("Text", video, nameof(video.Title));
-            categoryInput.Items.AddRange(Enum.GetNames(typeof(VideoCategory)));
-            categoryInput.DataBindings.Add("SelectedItem", video, nameof(video.Category));
+            categoryInput.DataSource = Enum.GetNames(typeof(VideoCategory));
+            categoryInput.DataBindings.Add("SelectedIndex", video, nameof(video.Category));
+            categoryInput.SelectedIndexChanged += delegate { ComboSelectionChanged(); };
+
         }
 
         private void submit_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Infosoft_technical.VideoForms
             categoryInput.DataBindings.Clear();
 
             titleInput.DataBindings.Add("Text", video, nameof(video.Title));
-            categoryInput.DataBindings.Add("SelectedItem", video, nameof(video.Category));
+            categoryInput.DataBindings.Add("SelectedIndex", video, nameof(video.Category));
 
             this.Close();
         }
@@ -47,6 +47,18 @@ namespace Infosoft_technical.VideoForms
         private void cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ComboSelectionChanged()
+        {
+            if (categoryInput != null)
+            {
+                if (categoryInput.Items.Count > 0)
+                {
+                    var selection = (VideoCategory)Enum.Parse(typeof(VideoCategory), categoryInput.SelectedValue.ToString());
+                    video.Category = selection;
+                }
+            }
         }
     }
 }
