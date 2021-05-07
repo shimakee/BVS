@@ -22,7 +22,7 @@ namespace Infosoft_technical.VideoForms
             _unitOfWork = unitOfWork;
             video = new Video();
             titleInput.DataBindings.Add("Text", video, nameof(video.Title));
-            stockInput.DataBindings.Add("Value", video, nameof(video.Stock));
+            stockInput.DataBindings.Add("Value", video, nameof(video.InStock));
             categoryInput.DataSource = Enum.GetNames(typeof(VideoCategory));
             categoryInput.DataBindings.Add("SelectedIndex", video, nameof(video.Category));
             categoryInput.SelectedIndexChanged += delegate { ComboSelectionChanged(); };
@@ -42,7 +42,7 @@ namespace Infosoft_technical.VideoForms
 
 
             titleInput.DataBindings.Add("Text", video, nameof(video.Title));
-            stockInput.DataBindings.Add("Value", video, nameof(video.Stock));
+            stockInput.DataBindings.Add("Value", video, nameof(video.InStock));
             categoryInput.DataBindings.Add("SelectedIndex", video, nameof(video.Category));
 
             this.Close();

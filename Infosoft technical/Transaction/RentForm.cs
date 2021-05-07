@@ -21,7 +21,7 @@ namespace Infosoft_technical.Transaction
 
         public decimal TotalAmount
         {
-            get { return Rentals.Sum(video => video.Price); }
+            get { return Rentals.Sum(video => video.Price) * DaysRental; }
         }
         public BindingList<Video> Rentals { get; set; }
         public Video VideoSelected { get; set; }
@@ -47,19 +47,24 @@ namespace Infosoft_technical.Transaction
             lastname.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
             age.DataBindings.Add("Value", Customer, nameof(Customer.Age));
 
-            totalAmount.DataBindings.Add("Text", this, nameof(this.totalAmount));
+            totalAmount.DataBindings.Add("Text", this, nameof(this.TotalAmount));
 
             daysRental.DataBindings.Add("Value", this, nameof(this.DaysRental));
 
             videosList.DataSource = _unitOfWork.Video.GetAll().ToList();
             rentalList.DataSource = Rentals = new BindingList<Video>();
 
+            daysRental.ValueChanged += delegate { daysChanged(); };
             videosList.SelectionChanged += delegate { SelectionChanged(); };
             rentalList.SelectionChanged += delegate { SelectionChangedRental(); };
             customersList.SelectionChanged += delegate { SelectionChangedCustomer(); };
         }
 
-        
+        private void daysChanged()
+        {
+            totalAmount.DataBindings.Clear();
+            totalAmount.DataBindings.Add("Text", this, nameof(this.TotalAmount));
+        }
 
         private void rent_Click(object sender, EventArgs e)
         {
@@ -68,7 +73,7 @@ namespace Infosoft_technical.Transaction
                 var rental = new VideoRental();
                 rental.Customer = Customer;
                 rental.Video = video;
-                rental.StartDate = DateTime.Now;
+                rental.RentDate = DateTime.Now;
                 rental.DueDate = DateTime.Now.AddDays(DaysRental);
                 _unitOfWork.Rental.Add(rental);
 
@@ -76,6 +81,8 @@ namespace Infosoft_technical.Transaction
             }
 
             _unitOfWork.Complete();
+
+            rentalList.DataSource = Rentals = new BindingList<Video>();
             this.Close();
         }
 

@@ -31,7 +31,7 @@ namespace Models
         }
 
         private int _stock;
-        public int Stock
+        public int InStock
         {
             get { return _stock; }
             set
@@ -43,6 +43,22 @@ namespace Models
                 OnPropertyChanged();
             }
         }
+
+        private int _out;
+        public int RentedOut
+        {
+            get { return _out; }
+            set
+            {
+                if (value < 0)
+                    _out = 0;
+                else
+                    _out = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int OnHand {  get { return InStock - RentedOut; } }
 
         public decimal Price { get { return (Category == VideoCategory.DVD) ? 50 : 25; } }
 

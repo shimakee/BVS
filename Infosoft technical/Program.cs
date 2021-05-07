@@ -23,6 +23,8 @@ namespace Infosoft_technical
 
             PlutoContext context = new PlutoContext();
             context.Customers.ToList();
+            context.Videos.ToList();
+            context.Rentals.ToList();
             UnitOfWork unitOfWork = new UnitOfWork(context);
             Application.Run(new MainForm(unitOfWork));
 

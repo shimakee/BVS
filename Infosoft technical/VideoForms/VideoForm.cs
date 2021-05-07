@@ -27,7 +27,7 @@ namespace Infosoft_technical.VideoForms
             Video.Category = VideoCategory.DVD;
 
             title.DataBindings.Add("Text", Video, nameof(Video.Title));
-            stockInput.DataBindings.Add("Value", Video, nameof(Video.Stock));
+            stockInput.DataBindings.Add("Value", Video, nameof(Video.InStock));
             category.DataSource = Enum.GetNames(typeof(VideoCategory));
             category.DataBindings.Add("SelectedIndex", Video, nameof(Video.Category));
 
@@ -113,7 +113,7 @@ namespace Infosoft_technical.VideoForms
 
 
                         title.DataBindings.Add("Text", Video, nameof(Video.Title));
-                        stockInput.DataBindings.Add("Value", Video, nameof(Video.Stock));
+                        stockInput.DataBindings.Add("Value", Video, nameof(Video.InStock));
                         category.DataBindings.Add("SelectedIndex", Video, nameof(Video.Category));
                     }
                 }

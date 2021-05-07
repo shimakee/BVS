@@ -19,6 +19,7 @@ namespace Infosoft_technical
         private CustomerForm customerForm { get; set; }
         private VideoForm videoForm { get; set; }
         private RentForm rentForm { get; set; }
+        private ReturnForm returnForm { get; set; }
         private readonly IUnitOfWork _unitOfWork;
         public MainForm(UnitOfWork unitOfWork)
         {
@@ -49,6 +50,13 @@ namespace Infosoft_technical
             if (rentForm == null)
                 rentForm = new RentForm(_unitOfWork);
             rentForm.ShowDialog();
+        }
+
+        private void Return_Click(object sender, EventArgs e)
+        {
+            if (returnForm == null)
+                returnForm = new ReturnForm(_unitOfWork);
+            returnForm.ShowDialog();
         }
     }
 }
