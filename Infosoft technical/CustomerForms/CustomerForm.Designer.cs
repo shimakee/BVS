@@ -40,7 +40,9 @@ namespace Infosoft_technical
             this.ListOfCustomers = new System.Windows.Forms.DataGridView();
             this.AddButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.rentals = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.ListOfCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentals)).BeginInit();
             this.SuspendLayout();
             // 
             // firstName
@@ -148,11 +150,21 @@ namespace Infosoft_technical
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // rentals
+            // 
+            this.rentals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rentals.Location = new System.Drawing.Point(40, 291);
+            this.rentals.Name = "rentals";
+            this.rentals.RowTemplate.Height = 25;
+            this.rentals.Size = new System.Drawing.Size(271, 213);
+            this.rentals.TabIndex = 8;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 538);
+            this.Controls.Add(this.rentals);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ListOfCustomers);
@@ -167,6 +179,7 @@ namespace Infosoft_technical
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
             ((System.ComponentModel.ISupportInitialize)(this.ListOfCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +198,6 @@ namespace Infosoft_technical
         private System.Windows.Forms.DataGridView ListOfCustomers;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView rentals;
     }
 }

@@ -31,6 +31,7 @@ namespace Infosoft_technical
             //cancel.Click += delegate { viewModel.Cancel(); };
             //AddButton.Click += delegate { viewModel.OpenAddCustomerForm(); };
             ListOfCustomers.DataSource = unitOfWork.Customer.GetAll().ToList();
+            rentals.DataSource = unitOfWork.Rental.Find(rent => rent.Customer.ID == Customer.ID).ToList();
             ListOfCustomers.SelectionChanged += delegate { SelectionChanged(); };
         }
 
@@ -45,6 +46,7 @@ namespace Infosoft_technical
                     if(customer != null)
                     {
                         Customer = customer;
+                        rentals.DataSource = _unitOfWork.Rental.Find(rent => rent.Customer.ID == Customer.ID).ToList();
 
                         InputFirstName.DataBindings.Clear();
                         InputLastName.DataBindings.Clear();

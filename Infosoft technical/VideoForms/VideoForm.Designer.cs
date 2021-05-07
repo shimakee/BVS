@@ -104,7 +104,7 @@ namespace Infosoft_technical.VideoForms
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(78, 25);
             this.submit.TabIndex = 7;
-            this.submit.Text = "Add";
+            this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
@@ -161,19 +161,9 @@ namespace Infosoft_technical.VideoForms
             23283,
             0,
             0});
-            this.stockInput.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.stockInput.Name = "stockInput";
             this.stockInput.Size = new System.Drawing.Size(162, 23);
             this.stockInput.TabIndex = 13;
-            this.stockInput.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // VideoForm
             // 
