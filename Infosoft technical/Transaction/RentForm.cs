@@ -71,13 +71,23 @@ namespace Infosoft_technical.Transaction
             foreach (var video in Rentals)
             {
                 var rental = new VideoRental();
-                rental.Customer = Customer;
-                rental.Video = video;
-                rental.RentDate = DateTime.Now;
-                rental.DueDate = DateTime.Now.AddDays(DaysRental);
-                _unitOfWork.Rental.Add(rental);
+                var v = _unitOfWork.Video.Get(rental.Video.ID);
+                if(v.InStock > 0)
+                {
+                    rental.Customer = Customer;
+                    rental.Video = video;
+                    rental.RentDate = DateTime.Now;
+                    rental.DueDate = DateTime.Now.AddDays(DaysRental);
+                    rental.Status = RentalStatus.Rented;
+                    _unitOfWork.Rental.Add(rental);
 
-                //change video stock here
+                    //change video stock here
+                    v.InStock--;
+                    _unitOfWork.Video.Update(v);
+                }
+
+
+
             }
 
             _unitOfWork.Complete();

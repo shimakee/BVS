@@ -21,6 +21,8 @@ namespace Infosoft_technical.VideoForms
             InitializeComponent();
             _unitOfWork = unitOfWork;
             video = new Video();
+            video.InStock = 1;
+
             titleInput.DataBindings.Add("Text", video, nameof(video.Title));
             stockInput.DataBindings.Add("Value", video, nameof(video.InStock));
             categoryInput.DataSource = Enum.GetNames(typeof(VideoCategory));
@@ -34,6 +36,7 @@ namespace Infosoft_technical.VideoForms
             _unitOfWork.Video.Add(video);
             _unitOfWork.Complete();
             video = new Video();
+            video.InStock = 1;
             video.Category = VideoCategory.DVD;
 
             titleInput.DataBindings.Clear();

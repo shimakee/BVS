@@ -161,9 +161,19 @@ namespace Infosoft_technical.VideoForms
             23283,
             0,
             0});
+            this.stockInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.stockInput.Name = "stockInput";
             this.stockInput.Size = new System.Drawing.Size(162, 23);
             this.stockInput.TabIndex = 13;
+            this.stockInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // VideoForm
             // 

@@ -39,7 +39,7 @@ namespace Infosoft_technical.Transaction
                 Customer = new Customer();
 
             customersList.DataSource = customers;
-            var rentals = unitOfWork.Rental.Find(rental => rental.Customer.ID == Customer.ID).ToList();
+            var rentals = unitOfWork.Rental.Find(rental => rental.Customer.ID == Customer.ID && rental.Status == RentalStatus.Rented).ToList();
             Rental = rentals;
             var videos = rentals.Select(rental => rental.Video).ToList();
             //var videosRentedId = rentals.Select(rental => rental.Video).ToList().Select(video => video.ID).ToList();
@@ -52,6 +52,8 @@ namespace Infosoft_technical.Transaction
                 SelectedVideo = new Video();
                 SelectedVideo.Category = VideoCategory.DVD;
             }
+
+            VideoRental = Rental.Where(rent => rent.Video.ID == SelectedVideo.ID).FirstOrDefault();
 
             firstname.DataBindings.Add("Text", Customer, nameof(Customer.FirstName));
             lastname.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
@@ -76,7 +78,40 @@ namespace Infosoft_technical.Transaction
 
         private void returnVideo_Click(object sender, EventArgs e)
         {
+            var rentalInfo = _unitOfWork.Rental.Get(VideoRental.ID);
+            rentalInfo.Status = RentalStatus.Returned;
+            rentalInfo.ReturnDate = DateTime.Now;
+            var video = _unitOfWork.Video.Get(VideoRental.Video.ID);
+            video.InStock++;
 
+            _unitOfWork.Rental.Update(rentalInfo);
+            _unitOfWork.Video.Update(video);
+            _unitOfWork.Complete();
+
+            var rentals = _unitOfWork.Rental.Find(rental => rental.Customer.ID == Customer.ID && rental.Status == RentalStatus.Rented).ToList();
+            Rental = rentals;
+            var videos = rentals.Select(rental => rental.Video).ToList();
+            videosList.DataSource = videos;
+            if (Rental.Count > 0)
+                SelectedVideo = Rental[0].Video;
+            VideoRental = Rental.Where(rent => rent.Video.ID == SelectedVideo.ID).FirstOrDefault();
+            if (VideoRental != null)
+            {
+                DaysRented = (VideoRental.RentDate - DateTime.Now).Days;
+                if (DaysRented <= 0)
+                    DaysRented = 1;
+                DaysPastDue = (VideoRental.DueDate - DateTime.Now).Days;
+                PenaltyAmount = DaysPastDue * 5;
+                TotalAmount = (VideoRental.Video.Price * (DaysRented + DaysPastDue)) + PenaltyAmount;
+                daysRented.DataBindings.Clear();
+                daysRented.DataBindings.Add("Value", this, nameof(this.DaysRented));
+                daysPastDue.DataBindings.Clear();
+                daysPastDue.DataBindings.Add("Value", this, nameof(this.DaysPastDue));
+                penaltyAmount.DataBindings.Clear();
+                penaltyAmount.DataBindings.Add("Value", this, nameof(this.PenaltyAmount));
+                totalAmount.DataBindings.Clear();
+                totalAmount.DataBindings.Add("Value", this, nameof(this.TotalAmount));
+            }
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -105,15 +140,15 @@ namespace Infosoft_technical.Transaction
 
                         //DaysRented = Rental.Where(rent => rent.Video.ID == SelectedVideo.ID).Select(items => items.Video).Sum(video => video.Price);
 
-                        VideoRental rentInfo = Rental.Where(rent => rent.Video.ID == SelectedVideo.ID).FirstOrDefault();
-                        if (rentInfo != null)
+                        VideoRental = Rental.Where(rent => rent.Video.ID == SelectedVideo.ID).FirstOrDefault();
+                        if (VideoRental != null)
                         {
-                            DaysRented = (rentInfo.RentDate - DateTime.Now).Days;
+                            DaysRented = (VideoRental.RentDate - DateTime.Now).Days;
                             if (DaysRented <= 0)
                                 DaysRented = 1;
-                            DaysPastDue = (rentInfo.DueDate - DateTime.Now).Days;
+                            DaysPastDue = (VideoRental.DueDate - DateTime.Now).Days;
                             PenaltyAmount = DaysPastDue * 5;
-                            TotalAmount = (rentInfo.Video.Price * (DaysRented + DaysPastDue)) + PenaltyAmount;
+                            TotalAmount = (VideoRental.Video.Price * (DaysRented + DaysPastDue)) + PenaltyAmount;
                             daysRented.DataBindings.Clear();
                             daysRented.DataBindings.Add("Value", this, nameof(this.DaysRented));
                             daysPastDue.DataBindings.Clear();
@@ -145,7 +180,7 @@ namespace Infosoft_technical.Transaction
                     lastname.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
                     age.DataBindings.Add("Value", Customer, nameof(Customer.Age));
 
-                    var rentals = _unitOfWork.Rental.Find(rental => rental.Customer.ID == Customer.ID).ToList();
+                    var rentals = _unitOfWork.Rental.Find(rental => rental.Customer.ID == Customer.ID && rental.Status == RentalStatus.Rented).ToList();
                     Rental = rentals;
                     var videos = rentals.Select(rental => rental.Video).ToList();
                     videosList.DataSource = videos;
