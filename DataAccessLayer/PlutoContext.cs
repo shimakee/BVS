@@ -22,7 +22,7 @@ namespace DataAccessLayer
         {
             //base.OnConfiguring(optionsBuilder);
             //Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = BVS; AttachDbFilename =| DataDirectory |\BVS_Db.mdf; Integrated Security = True; Connect Timeout = 30;
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog = BVS; Integrated Security=True;Connect Timeout=30");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog = BVS2;AttachDbFilename=|DataDirectory|\BVS2.mdf; Integrated Security=True;Connect Timeout=30");
         }
     }
 }
